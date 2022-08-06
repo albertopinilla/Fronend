@@ -1,0 +1,49 @@
+<div class="box">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="w-commerce-commercecheckoutblockheader order-block-header">
+      <h4 class="order-block-heading">Iniciar sesión</h4>
+    </div>
+    <br />
+    <label class="w-commerce-commercecheckoutlabel label">Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      class="w-commerce-commercecheckoutshippingfullname input"
+      id="email"
+    />
+    <div *ngIf="submitted && f.email.errors" class="error">
+      <div *ngIf="f.email.errors.required">
+        <p style="color: red">El correo electrónico es requerido</p>
+      </div>
+      <div *ngIf="f.email.errors.email">
+        <p style="color: red">
+          El correo electrónico debe ser una dirección de correo electrónico
+          válida
+        </p>
+      </div>
+    </div>
+
+    <label class="w-commerce-commercecheckoutlabel label">Contraseña</label>
+    <input
+      type="password"
+      formControlName="password"
+      class="w-commerce-commercecheckoutshippingstreetaddress input"
+      id="password"
+    />
+    <div *ngIf="submitted && f.password.errors">
+      <div *ngIf="f.password.errors.required">
+        <p style="color: red">La contraseña es requerida</p>
+      </div>
+      <div *ngIf="f.password.errors.minlength">
+        <p style="color: red">La contraseña debe tener al menos 6 caracteres</p>
+      </div>
+    </div>
+
+    <button
+      value="Place Order"
+      class="w-commerce-commercecheckoutplaceorderbutton button"
+    >
+      Entrar
+    </button>
+  </form>
+</div>

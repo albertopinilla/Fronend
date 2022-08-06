@@ -1,0 +1,69 @@
+<div class="section wf-section">
+    <div class="wrapper">
+        <div class="shop-header">
+            <h3 class="no-margin w-hidden-small w-hidden-tiny">Mi carrito de compras</h3>
+            <!-- <div class="shop-categories-wrapper"><a href="javascript:void(0)" aria-current="page"
+                    class="shop-category-link w--current">Todo</a>
+                <div class="w-dyn-list">
+                    <div role="list" class="shop-categories w-dyn-items">
+                        <div role="listitem" class="w-dyn-item"><a href="javascript:void(0)"
+                                class="shop-category-link">Wooden
+                                Toys</a></div>
+                        <div role="listitem" class="w-dyn-item"><a href="javascript:void(0)"
+                                class="shop-category-link">Stuffed Animals</a></div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="shop-header-line">
+                <div class="shop-header-color green w-hidden-small w-hidden-tiny"></div>
+            </div>
+        </div>
+        <div>
+
+            <div class=" parent" *ngIf="datos.length > 0; else content">
+                <div class='product-table child'>
+                    <table style="width: 100%;">
+                        <tr>
+                            <th style="width: 10%;">N°</th>
+                            <th style="width: 20%;">Referencia</th>
+                            <th style="width: 50%;">Producto</th>
+                            <th style="width: 20%;">Precio</th>
+                            <th style="width: 10%;">Cantidad</th>
+                            <th style="width: 10%;">Total</th>
+                            
+                        </tr>
+                        <tr *ngFor="let item of datos; let i = index">
+                            <td>{{ i+1 }}</td>
+                            <td>{{ item.reference }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>${{ item.price | number:'4.2-5' }}</td>
+                            <td>
+                                <input type="number" class="w-commerce-commercecartquantity input quantity-input"
+                                    inputmode="numeric" name="quantity" autocomplete="off"
+                                    data-wf-cart-action="update-item-quantity" [(ngModel)]="item.cantidad"
+                                    name="cantidad" (change)="calcularPrecio()" min="1"
+                                    oninput="validity.valid||(value='');">
+                            </td>
+                            <td></td>
+                            <td><button (click)="deleteItem(item.id)">X</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class='product-table child'>
+                    <!-- <p><strong>Total:</strong> ${{ total | number:'4.2-5'  }}</p> -->
+                    <p><strong>Total:</strong> ${{ total }}</p>
+                    <a href="javascript:void(0)" class="shop-category-link w--current" (click)="comprar()">Comprar</a>
+                </div>
+            </div>
+            <ng-template #content>
+                <div class="center">
+                    <p>Tu carrito de compras esta vacío</p>
+                    <!-- <a [routerLink]="['']" class="shop-category-link w--current btn-center">Ir a productos</a> -->
+                </div>
+                
+            </ng-template>
+            
+            <br>
+            <br>
+        </div>
+    </div>

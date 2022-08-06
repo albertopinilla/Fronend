@@ -1,0 +1,52 @@
+<div class="section wf-section">
+    <div class="wrapper">
+      <div class="shop-header">
+        <h3 class="no-margin w-hidden-small w-hidden-tiny">All Toys</h3>
+        <div class="shop-categories-wrapper">
+          <a
+            href="catalog.html"
+            aria-current="page"
+            class="shop-category-link w--current"
+            >All Toys</a
+          >
+          <div class="w-dyn-list">
+            <div role="list" class="shop-categories w-dyn-items">
+              <div role="listitem" class="w-dyn-item">
+                <a href="category/wooden-toys.html" class="shop-category-link"
+                  >Wooden Toys</a
+                >
+              </div>
+              <div role="listitem" class="w-dyn-item">
+                <a href="category/stuffed-animals" class="shop-category-link"
+                  >Stuffed Animals</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="shop-header-line">
+          <div class="shop-header-color green w-hidden-small w-hidden-tiny"></div>
+        </div>
+      </div>
+      <div class="full-width w-dyn-list">
+        <div role="list" class="products w-dyn-items">
+          
+            <div role="listitem" class="product-card-wrapper w-dyn-item"
+            *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }">
+            <a href="javascript:void(0)" (click)="saveData(product.id)" class="product-card w-inline-block">
+              <div class="product-card-image-wrapper">
+                <img class="imagen" src="{{ product.avatar }}" alt="{{ product.avatar }}">
+              </div>
+              <h5 class="product-card-heading">{{ product.name }}</h5>
+              <p><small>Stock {{ product.stock }}<br>
+              ${{ product.price }}</small></p>
+              <div class="product-card-price">Agregar al carrito</div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <pagination-controls (pageChange)="pageChangeEvent($event)" class="custom-pagination"></pagination-controls>
+    </div>
+  </div>
