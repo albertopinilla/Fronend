@@ -1,5 +1,8 @@
+import { BuyService } from './../../../services/buy/buy.service';
 import { Component, OnInit } from '@angular/core';
+import { Buy } from 'src/app/models/buy';
 import { LocalStorageService } from 'src/app/services/localstorage/localstorage.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,31 +11,31 @@ import { LocalStorageService } from 'src/app/services/localstorage/localstorage.
   styleUrls: ['./buy-page.component.css']
 })
 export class BuyPageComponent implements OnInit {
+ 
 
-  constructor(private localStore: LocalStorageService) {
+  constructor(private router: Router, private localStore: LocalStorageService, private newpurchase: BuyService) {
 
   }
 
-  datos: any = [];
+  public datos: any = [];
 
-  //cantidad:number = 1;
+  public total: number = 0;
 
-  total: number = 0;
-
+  private purchase: any = [];
 
   ngOnInit(): void {
 
     let keys = [];
     this.datos = [];
     keys = Object.keys(localStorage);
-    
+
     keys.forEach((element, index) => {
-   
+
       this.datos.push(JSON.parse(localStorage[element]));
       this.datos[index]['cantidad'] = '1';
-  
+
     });
-    console.log(this.datos)
+    //console.log(this.datos)
     this.calcularPrecio();
 
   }
@@ -45,12 +48,31 @@ export class BuyPageComponent implements OnInit {
     }
   }
 
-  comprar() {
-    
+  buy() {
+
+    this.purchase = [];
+    for (let i = 0; i < this.datos.length; i++) {
+      this.purchase.push({ 'product_id': parseInt(this.datos[i].id), 'amount': parseInt(this.datos[i].cantidad)});
+    }
+   
+    const buy: Buy = this.purchase;
+
+    this.newpurchase.buy(buy).subscribe((data) => {
+      console.log(data);
+      this.localStore.clearData();
+      this.ngOnInit();
+    }, error=>{
+      if(error.error.message === 'No autenticado')
+      {
+        void this.router.navigateByUrl('/login');
+      }
+      console.log(error);
+    });
+
   }
 
   deleteItem(id: string) {
-    //removeData
+    
     localStorage.removeItem(id)
     this.calcularPrecio();
     this.ngOnInit();

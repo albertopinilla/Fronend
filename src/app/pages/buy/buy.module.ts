@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 
 @NgModule({
-	declarations: [],
-	imports: [CommonModule,FormsModule,BuyPageComponent],
+	declarations: [BuyPageComponent],
+	imports: [CommonModule,FormsModule],
 	exports: []
 })
 

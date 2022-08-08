@@ -11,6 +11,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { BuyModule } from './pages/buy/buy.module';
+import { ShoppingModule } from './pages/shopping/products.module';
 
 
 
@@ -20,9 +21,7 @@ import { BuyModule } from './pages/buy/buy.module';
     NavigationComponent,
     FooterComponent,
     ProductsComponent,
-    
-    
-   
+  
     ],
   imports: [
     BrowserModule,
@@ -30,7 +29,7 @@ import { BuyModule } from './pages/buy/buy.module';
     HomeModule,
     BuyModule,
     AppRoutingModule,
-    
+    ShoppingModule,
     
   ],
   providers: [

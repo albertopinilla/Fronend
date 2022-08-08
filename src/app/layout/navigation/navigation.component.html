@@ -1,4 +1,4 @@
-<div class="nav-bar w-nav">
+<!-- <div class="nav-bar w-nav">
   <div class="nav-top">
     <div class="wrapper nav-top-wrapper">
       <div class="nav-top-info">
@@ -49,49 +49,99 @@
   </div>
   <div class="nav-main">
     <div class="wrapper nav-bar-wrapper">
-      <a href="index.html" class="brand w-nav-brand"><div>ToyStore</div></a>
+      <a routerLink="" class="brand w-nav-brand"><div>ToyStore</div></a>
       <div class="navigation">
         <nav role="navigation" class="nav-menu w-nav-menu">
           <a
-            href="catalog.html"
+            routerLink="/shopping"
             aria-current="page"
             class="nav-link w-nav-link w--current"
-            >Catalog</a
-          ><a href="delivery.html" class="nav-link w-nav-link">Delivery</a
-          ><a href="about.html" class="nav-link w-nav-link">About</a
-          ><a href="contacts.html" class="nav-link w-nav-link">Contacts</a>
+            >Mis compras</a
+          ><a href="delivery.html" class="nav-link w-nav-link">Usuarios</a
+          ><a href="about.html" class="nav-link w-nav-link">Roles</a
+          ><a href="contacts.html" class="nav-link w-nav-link">Productos</a>
+          <a href="contacts.html" class="nav-link w-nav-link">Ventas</a>
         </nav>
-        <div class="menu-button w-nav-button">
-          <div class="w-icon-nav-menu"></div>
-        </div>
-        <div
-          data-node-type="commerce-cart-wrapper"
-          class="w-commerce-commercecartwrapper"
-        >
+      
+        <div class="w-commerce-commercecartwrapper w-inline-block">
           <a
-            href="#"
-            data-node-type="commerce-cart-open-link"
+            routerLink="/buy"
             class="w-commerce-commercecartopenlink cart-button w-inline-block"
-            ><div class="w-inline-block">Cart</div>
+          >
+            <div class="w-inline-block">Mi carrito</div>
             <img
               src="https://assets.website-files.com/5badda2935e11303a89a461e/5baf75c3bf02346640399fec_cart-icon.svg"
-              alt=""
               class="cart-icon"
             />
-            <div
-              data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22Number%22%2C%22filter%22%3A%7B%22type%22%3A%22numberPrecision%22%2C%22params%22%3A%5B%220%22%2C%22numberPrecision%22%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItemsCount%22%7D%7D%5D"
-              class="w-commerce-commercecartopenlinkcount item-count"
-            >
-              0
-            </div></a
+            <div class="w-commerce-commercecartopenlinkcount item-count">0</div>
+          </a>
+          
+        </div>
+        <div class="">
+          <a
+            routerLink="/login"
+            class=""
           >
-          <div
-            data-node-type="commerce-cart-container-wrapper"
-            style="display: none"
-            class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-modal"
-          ></div>
+            <div class="">Iniciar sesión</div>
+            
+          </a>
+        
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" routerLink="">Tienda</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#!">Home</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >Shop</a
+          >
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#!">All Products</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+            <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <a routerLink="/buy" class="btn btn-outline-dark">
+          <i class="bi-cart-fill me-1"></i>
+          Mi carrito
+          <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+        </a>
+        <a routerLink="/login" class="btn">
+          <i class="bi-cart-fill me-1"></i>
+          Iniciar sesión
+        </a>
+      </form>
+    </div>
+  </div>
+</nav>

@@ -1,19 +1,8 @@
-<div class="section wf-section">
+<!-- <div class="section wf-section box">
     <div class="wrapper">
         <div class="shop-header">
             <h3 class="no-margin w-hidden-small w-hidden-tiny">Mi carrito de compras</h3>
-            <!-- <div class="shop-categories-wrapper"><a href="javascript:void(0)" aria-current="page"
-                    class="shop-category-link w--current">Todo</a>
-                <div class="w-dyn-list">
-                    <div role="list" class="shop-categories w-dyn-items">
-                        <div role="listitem" class="w-dyn-item"><a href="javascript:void(0)"
-                                class="shop-category-link">Wooden
-                                Toys</a></div>
-                        <div role="listitem" class="w-dyn-item"><a href="javascript:void(0)"
-                                class="shop-category-link">Stuffed Animals</a></div>
-                    </div>
-                </div>
-            </div> -->
+            
             <div class="shop-header-line">
                 <div class="shop-header-color green w-hidden-small w-hidden-tiny"></div>
             </div>
@@ -50,15 +39,15 @@
                     </table>
                 </div>
                 <div class='product-table child'>
-                    <!-- <p><strong>Total:</strong> ${{ total | number:'4.2-5'  }}</p> -->
+                    
                     <p><strong>Total:</strong> ${{ total }}</p>
-                    <a href="javascript:void(0)" class="shop-category-link w--current" (click)="comprar()">Comprar</a>
+                    <a href="javascript:void(0)" class="shop-category-link w--current" (click)="buy()">Comprar</a>
                 </div>
             </div>
             <ng-template #content>
                 <div class="center">
                     <p>Tu carrito de compras esta vacío</p>
-                    <!-- <a [routerLink]="['']" class="shop-category-link w--current btn-center">Ir a productos</a> -->
+                   
                 </div>
                 
             </ng-template>
@@ -66,4 +55,98 @@
             <br>
             <br>
         </div>
+    </div> -->
+
+<div class="container">
+    <br>
+    <div class="alert alert-danger">
+        <strong>Success!</strong> Indicates a successful or positive action.
+      </div>
+</div>
+<div class="parent" *ngIf="datos.length > 0; else content">
+    
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row g-0">
+      <div class="col-md-8 border-right">
+        <div class="p-3 bg-white">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="heading1"></h6>
+            <div class="d-flex flex-row align-items-center text-muted">
+              <span class="days mr-2"></span>
+              <i class="fa fa-angle-down"></i>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-borderless">
+              <thead>
+                <th>N°</th>
+                <th>Referencia</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th></th>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let item of datos; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ item.reference }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>${{ item.price | number: "4.2-5" }}</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control form-control-sm"
+                      inputmode="numeric"
+                      name="quantity"
+                      autocomplete="off"
+                      data-wf-cart-action="update-item-quantity"
+                      [(ngModel)]="item.cantidad"
+                      name="cantidad"
+                      (change)="calcularPrecio()"
+                      min="1"
+                      oninput="validity.valid||(value='');"
+                    />
+                  </td>
+                  <td></td>
+                  <td>
+                    <button
+                      class="btn btn-sm btn-outline-danger"
+                      (click)="deleteItem(item.id)"
+                    >
+                      X
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="p-3 bg-white">
+          <h6 class="account">Total a pagar</h6>
+          <span class="mt-5 balance">${{ total | number: "4.2-5" }}</span>
+        </div>
+
+        <div class="border-top border-bottom p-3 bg-white transaction">
+          <a
+            href="javascript:void(0)"
+            class="btn btn-sm btn-primary"
+            (click)="buy()"
+            >Comprar</a
+          >
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<ng-template #content>
+  <div class="d-flex align-items-center justify-content-center h-100">
+    <p>Tu carrito de compras esta vacío</p>
+    <!-- <a routerLink=""  class="btn btn-sm btn-primary"> Ir a productos </a> -->
+  </div>
+</ng-template>
+

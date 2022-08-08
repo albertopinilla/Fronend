@@ -1,0 +1,28 @@
+<div class="section wf-section box">
+  <div class="wrapper">
+    <div class="product-table child">
+      <table id="customers" style="width: 100%">
+        <span *ngFor="let items of data.shopping">
+          <br />
+
+          <tr>
+            <td>
+              <strong>Compra #</strong> {{ items.resume.id }}<br />
+              <strong>Fecha de compra</strong> {{ items.resume.date_invoice }}<br />
+              <strong>Total</strong> {{ items.resume.total_invoice }}
+            </td>
+          </tr>
+          
+          <tr class="spaceUnder" *ngFor="let item of items.items">
+            <td style="width: 25%">{{ item.reference }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.amount }}</td>
+            <td>{{ item.unit_value }}</td>
+            <td>{{ item.total }}</td>
+          </tr>
+          <br />
+        </span>
+      </table>
+    </div>
+  </div>
+</div>

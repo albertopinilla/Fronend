@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { PathRest } from 'src/app/static/path-rest';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,8 @@ import { Injectable } from '@angular/core';
 
 export class ProductsService {
 
-  private products = 'http://192.168.0.80/backend/api/v1/products';
-  private product = 'http://192.168.0.80/backend/api/v1/products';
+  private products = PathRest.GET_PRODUCTS;
+  private product = PathRest.GET_PRODUCT;
 
   constructor(private httpClient: HttpClient) { }
     
@@ -18,6 +19,7 @@ export class ProductsService {
   }
 
   getProduct(id:string){
+    //alert(this.product + '/' + id)
     return this.httpClient.get(this.product + '/' + id);
   }
   

@@ -58,9 +58,10 @@ export class HomePageComponent implements OnInit {
       //product = response.product;
       localStorage.setItem(key, JSON.stringify(response.product));
     });
-    //console.log(this.service.getProduct(key))
+    console.log(this.service.getProduct(key))
     //
     this.carrito = this.localStore.numero();
   }
 
+ 
 }
