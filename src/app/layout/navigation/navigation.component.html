@@ -1,98 +1,3 @@
-<!-- <div class="nav-bar w-nav">
-  <div class="nav-top">
-    <div class="wrapper nav-top-wrapper">
-      <div class="nav-top-info">
-        <div class="nav-top-text">Call Us: +1 213 974-5898</div>
-        <div class="w-hidden-tiny">
-          Email: <a href="#" class="link-white">toystore@template.com</a>
-        </div>
-      </div>
-      <div class="nav-top-social">
-        <a
-          href="https://elasticthemes.com/"
-          target="_blank"
-          class="social-link w-inline-block"
-          ><img
-            src="https://assets.website-files.com/5badda2935e11303a89a461e/5bae5eec5227792568635e37_twitter-icon-white.svg"
-            alt="" /></a
-        ><a
-          href="https://elasticthemes.com/"
-          target="_blank"
-          class="social-link w-inline-block"
-          ><img
-            src="https://assets.website-files.com/5badda2935e11303a89a461e/5bae5eec3cb36463d4cf4661_facebook-icon-white.svg"
-            alt="" /></a
-        ><a
-          href="https://elasticthemes.com/"
-          target="_blank"
-          class="social-link w-inline-block"
-          ><img
-            src="https://assets.website-files.com/5badda2935e11303a89a461e/5bae5eec7fe624275552217c_instagram-icon-white.svg"
-            alt="" /></a
-        ><a
-          href="https://elasticthemes.com/"
-          target="_blank"
-          class="social-link w-inline-block"
-          ><img
-            src="https://assets.website-files.com/5badda2935e11303a89a461e/5bae5eec6e93377c0bbdba8a_pinterest-icon-white.svg"
-            alt="" /></a
-        ><a
-          href="https://elasticthemes.com/"
-          target="_blank"
-          class="social-link w-inline-block"
-          ><img
-            src="https://assets.website-files.com/5badda2935e11303a89a461e/5bae5eecfff242b7c309e311_youtube-icon.svg"
-            alt=""
-        /></a>
-      </div>
-    </div>
-  </div>
-  <div class="nav-main">
-    <div class="wrapper nav-bar-wrapper">
-      <a routerLink="" class="brand w-nav-brand"><div>ToyStore</div></a>
-      <div class="navigation">
-        <nav role="navigation" class="nav-menu w-nav-menu">
-          <a
-            routerLink="/shopping"
-            aria-current="page"
-            class="nav-link w-nav-link w--current"
-            >Mis compras</a
-          ><a href="delivery.html" class="nav-link w-nav-link">Usuarios</a
-          ><a href="about.html" class="nav-link w-nav-link">Roles</a
-          ><a href="contacts.html" class="nav-link w-nav-link">Productos</a>
-          <a href="contacts.html" class="nav-link w-nav-link">Ventas</a>
-        </nav>
-      
-        <div class="w-commerce-commercecartwrapper w-inline-block">
-          <a
-            routerLink="/buy"
-            class="w-commerce-commercecartopenlink cart-button w-inline-block"
-          >
-            <div class="w-inline-block">Mi carrito</div>
-            <img
-              src="https://assets.website-files.com/5badda2935e11303a89a461e/5baf75c3bf02346640399fec_cart-icon.svg"
-              class="cart-icon"
-            />
-            <div class="w-commerce-commercecartopenlinkcount item-count">0</div>
-          </a>
-          
-        </div>
-        <div class="">
-          <a
-            routerLink="/login"
-            class=""
-          >
-            <div class="">Iniciar sesión</div>
-            
-          </a>
-        
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container px-4 px-lg-5">
     <a class="navbar-brand" routerLink="">Tienda</a>
@@ -110,9 +15,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#!">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="/shopping"
+            >Mis compras</a
+          >
         </li>
-        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/users">Usuarios</a></li>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"

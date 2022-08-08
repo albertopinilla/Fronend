@@ -1,28 +1,47 @@
-<div class="section wf-section box">
-  <div class="wrapper">
-    <div class="product-table child">
-      <table id="customers" style="width: 100%">
-        <span *ngFor="let items of data.shopping">
-          <br />
 
-          <tr>
-            <td>
-              <strong>Compra #</strong> {{ items.resume.id }}<br />
-              <strong>Fecha de compra</strong> {{ items.resume.date_invoice }}<br />
-              <strong>Total</strong> {{ items.resume.total_invoice }}
-            </td>
-          </tr>
-          
-          <tr class="spaceUnder" *ngFor="let item of items.items">
-            <td style="width: 25%">{{ item.reference }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.amount }}</td>
-            <td>{{ item.unit_value }}</td>
-            <td>{{ item.total }}</td>
-          </tr>
-          <br />
-        </span>
-      </table>
+<section>
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="card" style="width: 100%">
+      <div class="card-body">
+        <h3>Mis compras</h3>
+        <table class="table table-sm">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio unitario</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let items of data.shopping">
+              <tr *ngFor="let item of items.items">
+                <td>{{ item.reference }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.amount }}</td>
+                <td>{{ item.unit_value }}</td>
+                <td>{{ item.total }}</td>
+              </tr>
+              <tr class="line">
+                <td colspan="5">
+                  <small><strong>Compra </strong>#0000{{ items.resume.id }}</small
+                  ><br />
+                  <small
+                    ><strong>Fecha de compra</strong>
+                    {{ items.resume.date_invoice }}</small
+                  ><br />
+                  <small
+                    ><strong>Total</strong>
+                    {{ items.resume.total_invoice }}</small
+                  ><br />
+                </td>
+              </tr>
+             
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+</section>

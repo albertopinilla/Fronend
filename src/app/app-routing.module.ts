@@ -5,13 +5,21 @@ import { LoginComponent } from './components/login/login.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HomePageComponent } from './pages/home/home-page/home-page.component';
 import { ShoppingPageComponent } from './pages/shopping/shopping-page/shopping-page.component';
+import { UsersPageComponent } from './pages/users/users-page/users-page.component';
 
 const appRoute:Routes= [
   {path: '', component:HomePageComponent},
+
   {path: 'login', component:LoginComponent},
+  {path: 'login', component:LoginComponent},
+
   {path: 'products', component:ProductsComponent},
+
   {path: 'buy', component:BuyPageComponent},
+
   {path: 'shopping', component:ShoppingPageComponent},
+
+  {path: 'users', component:UsersPageComponent},  
 ];
 
 @NgModule({

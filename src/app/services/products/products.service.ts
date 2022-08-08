@@ -15,11 +15,11 @@ export class ProductsService {
     
   getProducts(page: number){
     return this.httpClient.get(this.products + '?page=' + page);
-    //http://192.168.0.80/backend/api/v1/products?page=1
+    
   }
 
   getProduct(id:string){
-    //alert(this.product + '/' + id)
+    
     return this.httpClient.get(this.product + '/' + id);
   }
   

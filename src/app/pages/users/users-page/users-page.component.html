@@ -1,0 +1,55 @@
+<section>
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="card" style="width: 100%">
+      <div class="card-body">
+        <h3>Lista de usuarios</h3>
+        <table class="table table-sm">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Email</th>
+              <th scope="col">Fecha de creación</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of arrUsers.users">
+              <td>{{ item.name }}</td>
+              <td>{{ item.email }}</td>
+              <td>{{ item.created_at }}</td>
+              <td><a class="btn btn-primary btn-sm">Editar</a></td>
+              <td><a class="btn btn-danger btn-sm">Eliminar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -4,6 +4,7 @@ export class PathRest{
 
     //Auth
     static readonly POST_LOGIN = environment.backend+'/v1/auth/login'
+    static readonly POST_LOGOUT = environment.backend+'/v1/auth/logout'
 
     // Products
     static readonly GET_PRODUCTS = environment.backend+'/v1/products'
@@ -12,5 +13,8 @@ export class PathRest{
     // Buy
     static readonly GET_SHOPPING = environment.backend+'/v1/shopping'
     static readonly POST_BUY = environment.backend+'/v1/buy'
+
+    // Users
+    static readonly GET_USERS = environment.backend+'/v1/users'
 
 }
