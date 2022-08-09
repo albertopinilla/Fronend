@@ -12,8 +12,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { BuyModule } from './pages/buy/buy.module';
 import { ShoppingModule } from './pages/shopping/products.module';
-import { UsersgModule } from './pages/users/users.module';
-import { ModalComponent } from './pages/modal/modal.component';
+import { UsersModule } from './pages/users/users.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,7 @@ import { ModalComponent } from './pages/modal/modal.component';
     NavigationComponent,
     FooterComponent,
     ProductsComponent,
-    ModalComponent,
+    
     
   
     ],
@@ -32,7 +31,8 @@ import { ModalComponent } from './pages/modal/modal.component';
     BuyModule,
     AppRoutingModule,
     ShoppingModule,
-    UsersgModule,
+    UsersModule
+    
   ],
   providers: [
     {
