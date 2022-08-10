@@ -31,9 +31,14 @@ export class UsersService {
     return this.httpClient.post<User>(PathRest.POST_USERS,user);
   }
 
-  editUser()
+  editUser(id:number)
   {
-    //return this.httpClient.post<User>(PathRest.POST_USERS,user);
+    return this.httpClient.get(`${this.users}/${id}`);
+  }
+
+  updateUser(id:number, data:any)
+  {
+    return this.httpClient.put(`${this.users}/${id}`,data);
   }
 
 }

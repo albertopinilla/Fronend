@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { LocalStorageService } from 'src/app/services/localstorage/localstorage.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  public products: number = 0;
+
+  constructor(private LocalStorageService: LocalStorageService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.products = this.LocalStorageService.shoppingCart();
+  }
+
+  logOut() {
+    this.authService.logout().subscribe((res: any) => {
+      this.router.navigateByUrl('login');
+    });
+    
   }
 
 }

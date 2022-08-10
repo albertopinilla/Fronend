@@ -1,9 +1,62 @@
 <section>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="card" style="width: 100%;">
+            
             <div class="card-body">
-                12345
+                <h2>Editar usuario</h2>
+                <form [formGroup]="formUserEdit" (ngSubmit)="onSubmit()">
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input type="text" formControlName="name" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                    <div *ngIf="submitted && f.name.errors" class="error">
+                        <div *ngIf="f.name.errors.required">
+                            <p style="color: red;">El nombre es requerido</p>
+                        </div>
+                        <div *ngIf="f.name.errors.minlength">
+                            <p style="color: red;">
+                                La contraseña debe tener al menos 3 caracteres
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" formControlName="email" class="form-control form-control-sm" />
+                        </div>
+                       
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
+                        <div class="col-sm-10">
+                            <input type="password" formControlName="password" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                    <div *ngIf="submitted && f.password.errors">
+                        <div *ngIf="f.password.errors.required">
+                          <p style="color: red">La contraseña es requerida</p>
+                        </div>
+                        <div *ngIf="f.password.errors.minlength">
+                          <p style="color: red">La contraseña debe tener al menos 6 caracteres</p>
+                        </div>
+                      </div>
+
+                    <div class="mb-3 row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Confirmar contraseña</label>
+                        <div class="col-sm-10">
+                            <input type="password" formControlName="password" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                   
+
+                    <button value="Place Order" class="btn btn-sm btn-primary">
+                        Guardar
+                    </button>
+                </form>
             </div>
         </div>
-    </div> 
+    </div>
 </section>

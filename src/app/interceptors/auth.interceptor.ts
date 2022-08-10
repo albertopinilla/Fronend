@@ -3,24 +3,77 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpResponse,
+  HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { Route, Router } from '@angular/router';
+import { PathRest } from '../static/path-rest';
+
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor() {}
+constructor(private router: Router) { }
+
+//   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+//     return next.handle(request).pipe(
+//         catchError(e => this.handleError(request, next, e, request, 1))
+//     );
+// }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const token = sessionStorage.getItem('access_token')!;
     
-    const requestClone = request.clone({
-      headers: request.headers.set('Authorization',`Bearer ${token}`)
-    });
+    let requestClone = request;  
+
+    // return next.handle(requestClone).pipe(
+  	// 	tap((event:any) => {
+  	// 		if (event instanceof HttpResponse) {
+  	// 			if (
+  	// 				typeof event.body.status != 'undefined' &&
+  	// 				event.body.status == '401'
+  	// 			) {
+  	// 				localStorage.clear();
+  	// 				this.router.navigate(['/']);
+  	// 			}
+  	// 		}
+  	// 	})
+  	// );
+
+    if (!this.isLogin(request.url)) {
+
+			requestClone = request.clone({
+        headers: request.headers.set('Authorization', `Bearer ${token}`)
+      });
+		}
+
+    return next.handle(requestClone).pipe(catchError((error) => this.herrorHandler(error)));
+  }
+
+  private isLogin(url: string): boolean {
     
-    return next.handle(requestClone);
+  	return url.search(PathRest.POST_LOGIN) != -1;
+  }
+
+  private herrorHandler(error: HttpErrorResponse): Observable<never> {
+  	if (error instanceof HttpErrorResponse) {
+  		if (error.error instanceof ErrorEvent) {
+  			//alert('ERROR DE CLIENTE');
+  		} else {
+  			if (error.status === 401) {
+  				this.router.navigate(['/login']);
+  			} else {
+  				//alert('ERROR DE SERVIDOR');
+  			}
+  		}
+  	} else {
+  		//alert('OTRO TIPO DE ERROR');
+  	}
+  	return throwError(error);
   }
 
 }

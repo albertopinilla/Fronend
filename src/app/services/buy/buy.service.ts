@@ -21,7 +21,6 @@ export class BuyService {
 
   shopping()
   {
-   
     return this.httpClient.get(this.shoppings);
   }
 

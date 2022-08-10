@@ -19,7 +19,7 @@ export class CreateUserComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
-  onSubmit(): void {
+  onSubmit(): void{
 
     this.submitted = true;
     // stop here if form is invalid
@@ -33,7 +33,9 @@ export class CreateUserComponent implements OnInit {
 
       this.userService.createUser(user)
         .subscribe((data: any) => {
-          console.log(data)
+          if(data.success === true){
+          
+          }
         });
 
     }

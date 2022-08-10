@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class LocalStorageService {
 
   constructor() { }
@@ -18,7 +19,7 @@ export class LocalStorageService {
     localStorage.removeItem(key);
   }
 
-  numero()
+  shoppingCart()
   {
     return localStorage.length
   }
@@ -27,7 +28,7 @@ export class LocalStorageService {
     localStorage.clear();
   }
 
-  getAll()
+  public getAll()
   {
     return localStorage;
   }

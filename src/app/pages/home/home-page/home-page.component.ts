@@ -13,9 +13,9 @@ export class HomePageComponent implements OnInit {
   p: number = 1;
   total: number = 0;
 
-  carrito: number = 0;
+  
   constructor(private service: ProductsService, private localStore: LocalStorageService) {
-    this.carrito = this.localStore.numero();
+    
   }
 
   ngOnInit() {
@@ -60,7 +60,7 @@ export class HomePageComponent implements OnInit {
     });
     console.log(this.service.getProduct(key))
     //
-    this.carrito = this.localStore.numero();
+    
   }
 
  

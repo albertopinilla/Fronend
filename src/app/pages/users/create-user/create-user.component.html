@@ -2,6 +2,7 @@
     <div class="container px-4 px-lg-5 mt-5">
         <div class="card" style="width: 100%;">
             <div class="card-body">
+                <h2>Crear usuario</h2>
                 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                     <div class="mb-3 row">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
@@ -72,7 +73,7 @@
                         </div>
                     </div>
 
-                    <button value="Place Order" class="btn btn-sm btn-primary">
+                    <button value="Place Order" class="btn btn-sm btn-primary" type="submit">
                         Guardar
                     </button>
                 </form>

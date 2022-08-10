@@ -15,7 +15,7 @@ export class ProductsPageComponent implements OnInit {
   carrito: number = 0;
 
   constructor(private service: ProductsService, private localStore: LocalStorageService) {
-    this.carrito = this.localStore.numero();
+    this.carrito = this.localStore.shoppingCart();
   }
 
   ngOnInit() {
@@ -44,7 +44,7 @@ export class ProductsPageComponent implements OnInit {
         localStorage.setItem(key, JSON.stringify(response.product));
       });
 
-    this.carrito = this.localStore.numero();
+    this.carrito = this.localStore.shoppingCart();
   }
 
 }

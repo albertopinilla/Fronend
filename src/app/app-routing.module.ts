@@ -14,6 +14,7 @@ const appRoute:Routes= [
   {path: '', component:HomePageComponent},
 
   {path: 'login', component:LoginComponent},
+  {path: 'logout', component:LoginComponent},
   
   {path: 'products', component:ProductsComponent},
 
