@@ -1,3 +1,16 @@
 <app-navigation></app-navigation>
+
+<div class="container">
+    <div class="alert alert-danger" role="alert" *ngIf="idleState != ''">
+        {{ idleState }}
+        <button (click)="reset()" class="btn btn-sm btn-success" *ngIf="!timedOut">Estoy aquí</button>
+    </div>
+</div>
+
 <router-outlet></router-outlet>
 
+<!-- <p>
+  <strong>{{ idleState }}</strong>
+</p> 
+<p *ngIf="lastPing"><small>Last keepalive ping <strong>{{lastPing}}</strong></small></p>
+<button (click)="reset()" *ngIf="timedOut">Restart</button> -->

@@ -26,23 +26,9 @@ constructor(private router: Router) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    const token = sessionStorage.getItem('access_token')!;
+    const token = localStorage.getItem('access_token')!;
     
     let requestClone = request;  
-
-    // return next.handle(requestClone).pipe(
-  	// 	tap((event:any) => {
-  	// 		if (event instanceof HttpResponse) {
-  	// 			if (
-  	// 				typeof event.body.status != 'undefined' &&
-  	// 				event.body.status == '401'
-  	// 			) {
-  	// 				localStorage.clear();
-  	// 				this.router.navigate(['/']);
-  	// 			}
-  	// 		}
-  	// 	})
-  	// );
 
     if (!this.isLogin(request.url)) {
 

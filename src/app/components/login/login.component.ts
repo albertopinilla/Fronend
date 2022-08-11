@@ -7,7 +7,6 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent implements OnInit {
@@ -33,8 +32,8 @@ export class LoginComponent implements OnInit {
       
       this.login.login(user)
         .subscribe((data:any) => {
-          //console.log(data)
-          sessionStorage.setItem('access_token',data.token);
+
+          localStorage.setItem('access_token',data.token);
           void this.router.navigateByUrl('');
         }, error=>{
           alert('El usuario y/o contraseña son incorrectos')

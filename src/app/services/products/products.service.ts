@@ -22,5 +22,9 @@ export class ProductsService {
     
     return this.httpClient.get(this.product + '/' + id);
   }
+
+  deleteProduct(id:number){
+    return this.httpClient.delete(this.product + '/' + id);
+  }
   
 }

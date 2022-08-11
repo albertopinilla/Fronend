@@ -2,46 +2,37 @@
     <div class="container px-4 px-lg-5 mt-5">
         <div class="card" style="width: 100%;">
             <div class="card-body">
-                <h3>Listado productos</h3>
-                <a class="btn btn-primary btn-sm float-end" routerLink='/products/create'>
+                <h3>Listado roles</h3>
+                <a class="btn btn-primary btn-sm float-end" routerLink='/roles/create'>
                     Nuevo
                 </a>
                 <table class="table table-sm">
                     <thead class="table-dark">
                         <tr>
-                            <th scope="col">Referencia</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Stock</th>
                             <th scope="col">Fecha de creación</th>
                             <th>&nbsp;</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
-                    
                     <tbody>
-                        <tr *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }">
-                            <td>{{ product.reference }}</td>
-                            <td>{{ product.name }}</td>
-                            <td>{{ product.category }}</td>
-                            <td>{{ product.precio }}</td>
-                            <td>{{ product.stock }}</td>
-                            <td>{{ product.created_at }}</td>
+                        <tr *ngFor="let role of roles">
+                            <td>{{ role.name }}</td>
+                            <td>{{ role.created_at }}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm" routerLink="/products/edit/{{product.id}}">
+                                <button class="btn btn-primary btn-sm" routerLink="/roles/edit/{{role.id}}">
                                     Editar
                                 </button>
                             </td>
                             <td>
-                                <button class="btn btn-danger btn-sm" (click)="openModal(delete, product.id)">
+                                <button class="btn btn-danger btn-sm" (click)="openModal(delete, role.id)">
                                     Eliminar
                                 </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <pagination-controls (pageChange)="pageChangeEvent($event)" class="custom-pagination"></pagination-controls>
+
             </div>
         </div>
     </div>
@@ -49,20 +40,19 @@
 
 <ng-template #delete let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Eliminar producto</h4>
+        <h4 class="modal-title" id="modal-basic-title">Eliminar rol</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">×</span>
         </button>
     </div>
     <div class="modal-body">
-        ¿Está seguro que desea eliminar este producto?
+        ¿Está seguro que desea eliminar este rol?
         <div class="d-grid gap-2 d-md-block">
             <button class="btn btn-success btn-sm" type="button" (click)="modal.close('Save click')">No</button>
             <button class="btn btn-danger btn-sm" type="button" (click)="deleteProduct(); modal.close('Save click')"> Sí
             </button>
         </div>
     </div>
-
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark btn-sm" (click)="modal.close('Save click')">
             Cerrar

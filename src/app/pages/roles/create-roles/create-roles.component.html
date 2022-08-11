@@ -1,0 +1,25 @@
+<section>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h2>Crear rol</h2>
+                <form [formGroup]="createRolForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input type="text" formControlName="name" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                    <div *ngIf="submitted && f.name.errors" class="error">
+                        <div *ngIf="f.name.errors?.required">
+                            <p style="color: red">El nombre es requerido</p>
+                        </div>
+                    </div>
+                    <button value="Place Order" class="btn btn-sm btn-primary" type="submit">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

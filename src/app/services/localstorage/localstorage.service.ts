@@ -6,30 +6,28 @@ import { Injectable } from '@angular/core';
 
 export class LocalStorageService {
 
-  constructor() { }
-
   public saveData(key: string, value: string) {
-    localStorage.setItem(key, JSON.stringify(value));
+    sessionStorage.setItem(key, JSON.stringify(value));
   }
 
   public getData(key: string) {
-    return localStorage.getItem(key)
+    return sessionStorage.getItem(key)
   }
   public removeData(key: string) {
-    localStorage.removeItem(key);
+    sessionStorage.removeItem(key);
   }
 
   shoppingCart()
   {
-    return localStorage.length
+    return sessionStorage.length
   }
 
   public clearData() {
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
   public getAll()
   {
-    return localStorage;
+    return sessionStorage;
   }
 }

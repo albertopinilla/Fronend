@@ -2,20 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localstorage/localstorage.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { RolesService } from 'src/app/services/roles/roles.service';
 
 @Component({
-  selector: 'app-products-page',
-  templateUrl: './products-page.component.html',
+  selector: 'app-roles-page',
+  templateUrl: './roles-page.component.html',
  
 })
-export class ProductsPageComponent implements OnInit {
+export class RolesPageComponent implements OnInit {
 
-  products: any = [];
-  p: number = 1;
-  total: number = 0;
-  private product_id:number = 0;
+  roles: any = [];
+  private role_id:number = 0;
 
-  constructor(private productService: ProductsService, private localStore: LocalStorageService, private modal: ModalService) {
+  constructor(private rolesService: RolesService, private localStore: LocalStorageService, private modal: ModalService) {
     
   }
 
@@ -25,24 +24,17 @@ export class ProductsPageComponent implements OnInit {
 
   getAll() {
     
-    this.productService.getProducts(this.p)
+    this.rolesService.getRoles()
       .subscribe((res: any) => {
         
-        this.products = res.data;
-        this.total = res.total;
-
-   
+        this.roles = res.roles;
+     
       });
     
   }
-
-  pageChangeEvent(event: number) {
-    this.p = event;
-    this.getAll();
-  }
-
+  
   deleteProduct() {
-    this.productService.deleteProduct(this.product_id)
+    this.rolesService.deleteRole(this.role_id)
       .subscribe((res: any) => {
         this.getAll();
         
@@ -50,7 +42,7 @@ export class ProductsPageComponent implements OnInit {
   }
 
   openModal(myModal: any, id: number) {
-    this.product_id = id;
+    this.role_id = id;
     this.modal.open(myModal);
   }
 

@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./buy-page.component.css']
 })
 export class BuyPageComponent implements OnInit {
- 
 
-  constructor(private router: Router, private localStore: LocalStorageService, private newpurchase: BuyService) {
+
+  constructor(private router: Router, private sessionStore: LocalStorageService, private newpurchase: BuyService) {
 
   }
 
@@ -27,15 +27,13 @@ export class BuyPageComponent implements OnInit {
 
     let keys = [];
     this.datos = [];
-    keys = Object.keys(localStorage);
-
-    keys.forEach((element, index) => {
-
-      this.datos.push(JSON.parse(localStorage[element]));
+    keys = Object.keys(this.sessionStore.getAll());
+   
+    keys.forEach((element,index) => {
+      this.datos.push(JSON.parse(sessionStorage[element]));
       this.datos[index]['cantidad'] = '1';
-
     });
-    //console.log(this.datos)
+   
     this.calcularPrecio();
 
   }
@@ -52,28 +50,27 @@ export class BuyPageComponent implements OnInit {
 
     this.purchase = [];
     for (let i = 0; i < this.datos.length; i++) {
-      this.purchase.push({ 'product_id': parseInt(this.datos[i].id), 'amount': parseInt(this.datos[i].cantidad)});
+      this.purchase.push({ 'product_id': parseInt(this.datos[i].id), 'amount': parseInt(this.datos[i].cantidad) });
     }
-   
+
     const buy: Buy = this.purchase;
 
     this.newpurchase.buy(buy).subscribe((data) => {
-      console.log(data);
-      this.localStore.clearData();
+   
+      this.sessionStore.clearData();
       this.ngOnInit();
-    }, error=>{
-      if(error.error.message === 'No autenticado')
-      {
+    }, error => {
+      if (error.error.message === 'No autenticado') {
         void this.router.navigateByUrl('/login');
       }
-      console.log(error);
+
     });
 
   }
 
   deleteItem(id: string) {
-    
-    localStorage.removeItem(id)
+
+    sessionStorage.removeItem(id)
     this.calcularPrecio();
     this.ngOnInit();
   }

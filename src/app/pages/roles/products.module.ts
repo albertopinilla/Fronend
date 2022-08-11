@@ -1,15 +1,16 @@
 import { CommonModule} from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { CreateProductsComponent } from './create-products/create-products.component';
-import { EditProductsComponent } from './edit-products/edit-products.component';
-import { ProductsPageComponent } from './products-page/products-page.component';
+import { CreateRolesComponent } from './create-roles/create-roles.component';
+import { EditRolesComponent } from './edit-roles/edit-roles.component';
+import { RolesPageComponent } from './roles-page/roles-page.component';
 
 @NgModule({
-	declarations: [ProductsPageComponent,EditProductsComponent,CreateProductsComponent],
+	declarations: [RolesPageComponent,EditRolesComponent,CreateRolesComponent],
 	imports: [
 		CommonModule,
 		BrowserModule,
@@ -17,8 +18,9 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 		ReactiveFormsModule,
 		FormsModule,
 		RouterModule,
+		HttpClientModule
 	],
 	exports: []
 })
 
-export class ProductsModule {}
+export class RolesModule {}

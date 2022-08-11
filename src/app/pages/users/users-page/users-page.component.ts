@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-users-page',
   templateUrl: './users-page.component.html',
-  styleUrls: ['./users-page.component.css']
 })
 
 export class UsersPageComponent implements OnInit {
@@ -23,7 +22,7 @@ export class UsersPageComponent implements OnInit {
   getall() {
     this.users.getUsers()
       .subscribe((response: any) => {
-        console.log(response);
+
         this.arrUsers = response;
 
       });

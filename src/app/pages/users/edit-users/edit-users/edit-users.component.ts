@@ -7,7 +7,6 @@ import { UsersService } from 'src/app/services/users/users.service';
 @Component({
   selector: 'app-edit-users',
   templateUrl: './edit-users.component.html',
-  styleUrls: ['./edit-users.component.css']
 })
 
 export class EditUsersComponent implements OnInit {
@@ -21,7 +20,6 @@ export class EditUsersComponent implements OnInit {
     this.userId = this.activatedRoute.snapshot.paramMap.get('id');
     this.userService.getUser(this.userId)
       .subscribe((data: any) => {
-        console.log(data.user)
 
         this.formUserEdit.setValue({
           name: data.user.name,
@@ -47,14 +45,14 @@ export class EditUsersComponent implements OnInit {
     }
     //True if all the fields are filled
     if (this.submitted) {
-      console.log(this.formUserEdit.value)
+
       // this.userService.updateUser(this.userId,this.formUserEdit)
       // .subscribe((data:any) => {
-      //   console.log(data)
+
       // });
       // this.login.login(user)
       //   .subscribe((data:any) => {
-      //     //console.log(data)
+ 
       //     sessionStorage.setItem('access_token',data.token);
       //     void this.router.navigateByUrl('');
       //   }, error=>{

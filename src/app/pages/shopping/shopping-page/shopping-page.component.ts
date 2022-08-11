@@ -8,8 +8,8 @@ import { BuyService } from 'src/app/services/buy/buy.service';
 })
 export class ShoppingPageComponent implements OnInit {
 
-  public data:any = [];
- 
+  public data: any = [];
+
   constructor(private shoppings: BuyService) { }
 
   ngOnInit() {
@@ -18,11 +18,11 @@ export class ShoppingPageComponent implements OnInit {
 
   getShoppings() {
     this.shoppings.shopping()
-      .subscribe((res:any) => {
+      .subscribe((res: any) => {
 
-      this.data = res;
-      console.log(res.shopping)
-    });
+        this.data = res;
+
+      });
 
   }
 

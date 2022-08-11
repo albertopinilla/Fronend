@@ -1,66 +1,63 @@
 <section>
-  <div class="container px-4 px-lg-5 mt-5">
-      <div class="card" style="width: 100%;">
-          <div class="card-body">
-              <h3>Listado de usuarios</h3>
-              <a class="btn btn-primary btn-sm float-end" routerLink='/users/create'>
-                Nuevos
-              </a>
-              
-              <table class="table table-sm">
-                  <thead class="table-dark">
-                      <tr>
-                          <th scope="col">Nombre</th>
-                          <th scope="col">Email</th>
-                          <th scope="col">Fecha de creación</th>
-                          <th></th>
-                          <th></th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr *ngFor="let item of arrUsers.users">
-                          <td>{{ item.name }}</td>
-                          <td>{{ item.email }}</td>
-                          <td>{{ item.created_at }}</td>
-                          <td>
-                              <button class="btn btn-primary btn-sm" routerLink="/users/edit/{{item.id}}">
-                                  Editar
-                              </button>
-                          </td>
-                          <td>
-                              <button class="btn btn-danger btn-sm" (click)="openModal(delete, item.id)">
-                                  Eliminar
-                              </button>
-                          </td>
-                         
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
-      </div>
-  </div>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h3>Listado de usuarios</h3>
+                <a class="btn btn-primary btn-sm float-end" routerLink='/users/create'>
+                    Nuevos
+                </a>
+                <table class="table table-sm">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Fecha de creación</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of arrUsers.users">
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.created_at }}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" routerLink="/users/edit/{{item.id}}">
+                                    Editar
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" (click)="openModal(delete, item.id)">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!--MODAL DELETE-->
 <ng-template #delete let-modal>
-  <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Eliminar usuario</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">×</span>
-      </button>
-  </div>
-  <div class="modal-body">
-    ¿Está seguro que desea eliminar este usuario?
-    <div class="d-grid gap-2 d-md-block">
-      <button class="btn btn-success btn-sm" type="button" (click)="modal.close('Save click')">No</button>
-      <button class="btn btn-danger btn-sm" type="button" (click)="deleteUser(); modal.close('Save click')"> Sí </button>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Eliminar usuario</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+        </button>
     </div>
-  </div>
-  
-  <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark btn-sm" (click)="modal.close('Save click')">
-          Cerrar
-      </button>
-  </div>
-</ng-template>
+    <div class="modal-body">
+        ¿Está seguro que desea eliminar este usuario?
+        <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-success btn-sm" type="button" (click)="modal.close('Save click')">No</button>
+            <button class="btn btn-danger btn-sm" type="button" (click)="deleteUser(); modal.close('Save click')"> Sí
+            </button>
+        </div>
+    </div>
 
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark btn-sm" (click)="modal.close('Save click')">
+            Cerrar
+        </button>
+    </div>
+</ng-template>

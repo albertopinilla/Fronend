@@ -19,5 +19,7 @@ export class PathRest{
     static readonly GET_USER = environment.backend+'/v1/users'
     static readonly PUT_USERS = environment.backend+'/v1/users'
     static readonly POST_USERS = environment.backend+'/v1/users'
+
+    static readonly ROLES = environment.backend+'/v1/roles'
    
 }

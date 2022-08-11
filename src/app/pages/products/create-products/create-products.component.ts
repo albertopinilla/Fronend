@@ -6,9 +6,9 @@ import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
   selector: 'app-create-user',
-  templateUrl: './create-user.component.html',
+  templateUrl: './create-products.component.html',
 })
-export class CreateUserComponent implements OnInit {
+export class CreateProductsComponent implements OnInit {
 
   constructor(private router: Router, private formBuilder: FormBuilder, private userService: UsersService) { }
 
