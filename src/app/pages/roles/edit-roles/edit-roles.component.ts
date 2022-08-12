@@ -30,6 +30,9 @@ export class EditRolesComponent implements OnInit {
 
   get f() { return this.formRoleEdit.controls; }
 
+  /**
+  * Recibe los datos del formulari para ser validados
+  **/
   onSubmit(): void {
 
     this.submitted = true;
@@ -40,6 +43,9 @@ export class EditRolesComponent implements OnInit {
    
   }
 
+  /**
+  * Valida los datos enviados por el usuario 
+  **/
   ngOnInit() {
 
     this.formRoleEdit = this.formBuilder.group({

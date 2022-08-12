@@ -17,6 +17,9 @@ export class NavigationComponent{
     
   }
 
+  /**
+  * Cierra la sesión usando un servicio, redirecciona a login y borra el token guardado en local storage 
+  **/
   logOut() {
     this.authService.logout().subscribe((res: any) => {
       this.router.navigateByUrl('login');

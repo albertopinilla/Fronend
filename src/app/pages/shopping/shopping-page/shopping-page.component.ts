@@ -16,6 +16,9 @@ export class ShoppingPageComponent implements OnInit {
     this.getShoppings();
   }
 
+  /**
+  * Retorna todas las compras hechas por un usuario 
+  **/
   getShoppings() {
     this.shoppings.shopping()
       .subscribe((res: any) => {

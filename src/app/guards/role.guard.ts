@@ -11,6 +11,12 @@ export class RoleGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) { }
 
+  /**
+  * Se obtienen los atributos role y username que vienen en el Payload del token, estos se usan para mostrar el 
+  * username en el inicio de sesión del usuario y para validar los permisos que tendra el usuario de acuerdo a su rol
+  * @param route
+  * @return boolean
+  **/
   canActivate(route: ActivatedRouteSnapshot) {
 
     const token: any = localStorage.getItem('access_token');

@@ -13,16 +13,25 @@ export class ProductsService {
   private products = PathRest.GET_PRODUCTS;
   private product = PathRest.GET_PRODUCT;
 
+  /**
+  * Retorna todos los productos 
+  **/
   getProducts(page: number) {
     return this.httpClient.get(this.products + '?page=' + page);
 
   }
 
+  /**
+  * Retorna un producto 
+  **/
   getProduct(id: string) {
 
     return this.httpClient.get(this.product + '/' + id);
   }
 
+  /**
+  * Elimina un producto 
+  **/
   deleteProduct(id: number) {
     return this.httpClient.delete(this.product + '/' + id);
   }

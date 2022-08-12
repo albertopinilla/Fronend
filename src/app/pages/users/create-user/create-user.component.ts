@@ -20,6 +20,9 @@ export class CreateUserComponent implements OnInit {
     return this.registerForm.controls;
   }
 
+  /**
+  * Recibe los datos enviados por el usuario para ser procesados 
+  **/
   onSubmit(): void {
 
     this.submitted = true;
@@ -40,6 +43,9 @@ export class CreateUserComponent implements OnInit {
 
   }
 
+  /**
+  * Valida los campos enviados por el usuario 
+  **/
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       name: ['', [Validators.required], Validators.minLength(3)],

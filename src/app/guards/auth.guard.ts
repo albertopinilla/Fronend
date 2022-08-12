@@ -14,6 +14,11 @@ export class AuthGuard implements CanActivate {
 
   }
 
+  /**
+  * Valida si el usuario esta logueado, si no, redirecciona al login
+  * @param route
+  * @return boolean
+  **/
   canActivate(route: ActivatedRouteSnapshot): boolean {
 
     if (!this.authService.isAuth()) {

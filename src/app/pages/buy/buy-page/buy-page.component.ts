@@ -23,6 +23,9 @@ export class BuyPageComponent implements OnInit {
 
   private purchase: any = [];
 
+  /**
+  * Calcula el precio del total de los productos seleccionados 
+  **/
   ngOnInit(): void {
 
     let keys = [];
@@ -38,6 +41,9 @@ export class BuyPageComponent implements OnInit {
 
   }
 
+  /**
+  * Calcula el precio del total de los productos seleccionados 
+  **/
   calcularPrecio() {
     this.total = 0;
     for (let index = 0; index < this.datos.length; index++) {
@@ -46,6 +52,9 @@ export class BuyPageComponent implements OnInit {
     }
   }
 
+  /**
+  * Hace la compra de los productos y borra estos del local sotorage 
+  **/
   buy() {
 
     this.purchase = [];
@@ -68,6 +77,10 @@ export class BuyPageComponent implements OnInit {
 
   }
 
+  /**
+  * Elimina un articulo del localsorage 
+  * @param id
+  **/
   deleteItem(id: string) {
 
     sessionStorage.removeItem(id)

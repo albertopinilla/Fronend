@@ -13,10 +13,16 @@ export class BuyService {
   private purchase = PathRest.POST_BUY;
   private shoppings = PathRest.GET_SHOPPING;
 
+  /**
+  * Hace la compra de los productos seleccionados 
+  **/
   buy(products: Buy) {
     return this.httpClient.post<Buy>(this.purchase, products);
   }
 
+  /**
+  * Retorna las compras hechas por un usuario 
+  **/
   shopping() {
     return this.httpClient.get(this.shoppings);
   }

@@ -23,6 +23,10 @@ export class ProductsPageComponent implements OnInit {
     this.getAll();
   }
 
+  
+  /**
+  * Retorna todos los productos
+  **/
   getAll() {
 
     this.productService.getProducts(this.p)
@@ -35,11 +39,20 @@ export class ProductsPageComponent implements OnInit {
 
   }
 
+
+  /**
+  * Permite hacer la pagianción de los productos 
+  * @param event
+  **/
   pageChangeEvent(event: number) {
     this.p = event;
     this.getAll();
   }
 
+  
+  /**
+  * Elimina un producto
+  **/
   deleteProduct() {
     this.productService.deleteProduct(this.product_id)
       .subscribe((res: any) => {
@@ -48,6 +61,12 @@ export class ProductsPageComponent implements OnInit {
       });
   }
 
+  
+  /**
+  * Abre el modal de confirmación para la eliminación de un producto 
+  * @param error
+  * @param id
+  **/
   openModal(myModal: any, id: number) {
     this.product_id = id;
     this.modal.open(myModal);

@@ -14,11 +14,14 @@ export class UsersPageComponent implements OnInit {
   private user_id: number = 0;
 
   constructor(private users: UsersService, private modal: ModalService, private formBuilder: FormBuilder) { }
-
+  
   ngOnInit(): void {
     this.getall();
   }
 
+  /**
+  * Retorna todos los usuarios 
+  **/
   getall() {
     this.users.getUsers()
       .subscribe((response: any) => {
@@ -28,6 +31,9 @@ export class UsersPageComponent implements OnInit {
       });
   }
 
+  /**
+  * Elimina un usuario 
+  **/
   deleteUser() {
     this.users.deleteUser(this.user_id)
       .subscribe((res: any) => {
@@ -36,6 +42,9 @@ export class UsersPageComponent implements OnInit {
       });
   }
 
+  /**
+  * Abre un modal de confirmación para la eliminación de un usuario 
+  **/
   openModal(myModal: any, id: number) {
     this.user_id = id;
     this.modal.open(myModal);

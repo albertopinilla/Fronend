@@ -8,6 +8,9 @@ export class ModalService {
 
   constructor(private modalService: NgbModal) { }
 
+  /**
+  * Metodo para abrir un modal 
+  **/
   open(content: any) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -18,6 +21,9 @@ export class ModalService {
   
   closeResult: string = '';
 
+  /**
+  * Controla el cierre de un modal
+  **/
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

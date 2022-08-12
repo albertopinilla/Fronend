@@ -19,6 +19,9 @@ export class CreateRolesComponent implements OnInit {
 
   get f() { return this.createRolForm.controls; }
 
+  /**
+  * Recibe los datos enviados por el formulario para se validados
+  **/
   onSubmit(): void {
 
     this.submitted = true;
@@ -39,6 +42,9 @@ export class CreateRolesComponent implements OnInit {
 
   }
 
+  /**
+  * Valida los datos enviados por el usuario 
+  **/
   ngOnInit() {
     this.createRolForm = this.formBuilder.group({
       name: ['', [Validators.required]]

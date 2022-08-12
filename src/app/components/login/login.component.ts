@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
+  /**
+  * Metodo que se ejecuta el enviar el formulario 
+  **/
   onSubmit(): void {
 
     this.submitted = true;
@@ -42,6 +45,9 @@ export class LoginComponent implements OnInit {
 
   }
 
+  /**
+  * Valida que los datos enviados del formulario sena correctos usando Validators
+  **/
   ngOnInit() {
 
     this.registerForm = this.formBuilder.group({

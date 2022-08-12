@@ -18,6 +18,9 @@ export class HomePageComponent implements OnInit {
     this.getAll();
   }
 
+  /**
+  * Retorna todos los productos 
+  **/
   getAll() {
 
     this.service.getProducts(this.p)
@@ -30,11 +33,17 @@ export class HomePageComponent implements OnInit {
 
   }
 
+  /**
+  * Permite paginar los productos
+  **/
   pageChangeEvent(event: number) {
     this.p = event;
     this.getAll();
   }
 
+  /**
+  * Guarda un producto en el localstorage para hacer un compra 
+  **/
   saveData(key: string) {
 
     this.service.getProduct(key)

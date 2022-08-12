@@ -33,6 +33,10 @@ export class EditUsersComponent implements OnInit {
 
   get f() { return this.formUserEdit.controls; }
 
+  
+  /**
+  * Recibe los datos enviados por el usuario para ser procesados 
+  **/
   onSubmit(): void {
 
     this.submitted = true;
@@ -43,6 +47,9 @@ export class EditUsersComponent implements OnInit {
 
   }
 
+  /**
+  * Valida los campos enviados por el usuario 
+  **/
   ngOnInit() {
 
     this.formUserEdit = this.formBuilder.group({

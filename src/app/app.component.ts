@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
 import { Keepalive } from '@ng-idle/keepalive';
 import { AuthService } from './services/auth/auth.service';
-import { ModalService } from 'src/app/services/modal/modal.service';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -12,6 +11,9 @@ import { NavigationEnd, Router } from '@angular/router';
 
 export class AppComponent {
 
+  /**
+  * Valida si la ruta actual es diferente de /login para iniciar el Timeout por inactividad 
+  **/
   constructor(private idle: Idle, private keepalive: Keepalive, private authService: AuthService, private router: Router) {
 
     this.router.events.subscribe(event => {
@@ -34,10 +36,13 @@ export class AppComponent {
   role: any;
   username:any; 
 
+  /**
+  * Inicia el contador de Timeout 
+  **/
   start() {
-    this.idle.setIdle(60);
+    this.idle.setIdle(5);
 
-    this.idle.setTimeout(5);
+    this.idle.setTimeout(60);
    
     this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
@@ -61,6 +66,9 @@ export class AppComponent {
     this.reset();
   }
 
+  /**
+  * Reinicio de contador de time out
+  **/
   reset() {
     this.idle.watch();
     this.idleState = '';

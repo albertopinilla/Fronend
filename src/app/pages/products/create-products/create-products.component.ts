@@ -18,6 +18,9 @@ export class CreateProductsComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
+  /**
+  * Recibe los datos enviados del formulario para ser procesados 
+  **/
   onSubmit(): void {
 
     this.submitted = true;
@@ -41,6 +44,9 @@ export class CreateProductsComponent implements OnInit {
 
   }
 
+  /**
+  * Valida los datos del formulario enviado usando Validators
+  **/
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       name: ['', [Validators.required], Validators.minLength(3)],

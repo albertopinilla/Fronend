@@ -10,6 +10,10 @@ import { ProductsService } from 'src/app/services/products/products.service';
 
 export class EditProductsComponent implements OnInit {
 
+  
+  /**
+  * Se obtiene el id de cada producto por URL para su edición 
+  **/
   constructor(private router: Router, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private productsService: ProductsService) {
 
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -31,6 +35,10 @@ export class EditProductsComponent implements OnInit {
 
   get f() { return this.formProductEdit.controls; }
 
+  
+  /**
+  * Recibe los datos del formulario para  ser procesados
+  **/
   onSubmit(): void {
 
     this.submitted = true;
@@ -41,6 +49,11 @@ export class EditProductsComponent implements OnInit {
 
   }
 
+  
+
+  /**
+  * Valida los datos enviados por el formulario
+  **/
   ngOnInit() {
 
     this.formProductEdit = this.formBuilder.group({

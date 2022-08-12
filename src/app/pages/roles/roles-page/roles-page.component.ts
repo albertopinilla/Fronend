@@ -19,6 +19,9 @@ export class RolesPageComponent implements OnInit {
     this.getAll();
   }
 
+  /**
+  * Retorna todos los roles
+  **/
   getAll() {
 
     this.rolesService.getRoles()
@@ -28,6 +31,9 @@ export class RolesPageComponent implements OnInit {
 
   }
 
+  /**
+  * Permite eliminar un rol 
+  **/
   deleteProduct() {
     this.rolesService.deleteRole(this.role_id)
       .subscribe((res: any) => {
@@ -36,6 +42,9 @@ export class RolesPageComponent implements OnInit {
       });
   }
 
+  /**
+  * Abre el modal de confirmación de eliminación de un rol
+  **/
   openModal(myModal: any, id: number) {
     this.role_id = id;
     this.modal.open(myModal);
