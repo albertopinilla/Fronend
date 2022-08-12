@@ -13,6 +13,7 @@ import { ShoppingModule } from './pages/shopping/products.module';
 import { UsersModule } from './pages/users/users.module';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { RolesModule } from './pages/roles/products.module';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,10 @@ import { RolesModule } from './pages/roles/products.module';
       provide:HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
+    },
+    JwtHelperService,
+    {
+      provide: JWT_OPTIONS, useValue: JWT_OPTIONS
     }
   ],
   bootstrap: [AppComponent]

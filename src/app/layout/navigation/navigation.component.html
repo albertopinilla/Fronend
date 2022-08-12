@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container px-4 px-lg-5">
-    <a class="navbar-brand" routerLink="">Tienda</a>
+    <a class="navbar-brand" routerLink="">Small Food</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="role == 'Cliente'">
           <a class="nav-link active" aria-current="page" routerLink="/shopping">Mis compras</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="role == 'Administrador'">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">Administración</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -24,16 +24,17 @@
           </ul>
         </li>
       </ul>
+      <a *ngIf="username">
+        Hola, {{ username }}
+      </a>
       <form class="d-flex">
-        <a routerLink="/buy" class="btn btn-outline-dark">
+        
+        <a routerLink="/buy" class="btn btn-inline-dark" *ngIf="role == 'Cliente'">
           Mi carrito
           <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
         </a>
-        <a routerLink="/login" class="btn">
-          Iniciar sesión
-        </a>
-        <a (click)="logOut()" class="btn">
-          Close
+        <a (click)="logOut()" class="btn" *ngIf="role">
+          Cerrar sesión
         </a>
       </form>
     </div>

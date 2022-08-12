@@ -1,3 +1,4 @@
+import { RoleGuard } from './guards/role.guard';
 import { BuyPageComponent } from './pages/buy/buy-page/buy-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -20,23 +21,25 @@ const appRoute:Routes= [
   {path: '', component:HomePageComponent, canActivate: [AuthGuard]},
 
   {path: 'login', component:LoginComponent},
-  {path: 'logout', component:LoginComponent},
+  {path: 'logout', component:LoginComponent, canActivate: [AuthGuard]},
   
-  {path: 'buy', component:BuyPageComponent},
+  {path: 'buy', component:BuyPageComponent, canActivate: [AuthGuard,RoleGuard], data: {role: 'Cliente'}},
 
-  {path: 'shopping', component:ShoppingPageComponent},
+  {path: 'shopping', component:ShoppingPageComponent, canActivate: [AuthGuard,RoleGuard],data: {role: 'Cliente'}},
 
-  {path: 'users', component:UsersPageComponent},
-  {path: 'users/create', component:CreateUserComponent},
-  {path: 'users/edit/:id', component:EditUsersComponent},
+  {path: 'users', component:UsersPageComponent, canActivate: [AuthGuard,RoleGuard], data: {role: 'Administrador'}},
+  {path: 'users/create', component:CreateUserComponent, canActivate: [AuthGuard,RoleGuard], data: {role: 'Administrador'}},
+  {path: 'users/edit/:id', component:EditUsersComponent, canActivate: [AuthGuard,RoleGuard], data: {role: 'Administrador'}},
 
-  {path: 'roles', component:RolesPageComponent},
-  {path: 'roles/create', component:CreateRolesComponent},
-  {path: 'roles/edit/:id', component:EditRolesComponent},
+  {path: 'roles', component:RolesPageComponent, canActivate: [AuthGuard,RoleGuard], data: {role: 'Administrador'}},
+  {path: 'roles/create', component:CreateRolesComponent, canActivate: [AuthGuard,RoleGuard], data: {role: 'Administrador'}},
+  {path: 'roles/edit/:id', component:EditRolesComponent, canActivate: [AuthGuard,RoleGuard], data: {role: 'Administrador'}},
 
-  {path: 'products', component:ProductsPageComponent},
-  {path: 'products/create', component:CreateProductsComponent},
-  {path: 'products/edit/:id', component:EditProductsComponent},
+  {path: 'products', component:ProductsPageComponent, canActivate: [AuthGuard,RoleGuard], data: {role: ['Administrador','Vendedor']}},
+  {path: 'products/create', component:CreateProductsComponent, canActivate: [AuthGuard,RoleGuard], data: {role: 'Administrador'}},
+  {path: 'products/edit/:id', component:EditProductsComponent, canActivate: [AuthGuard,RoleGuard], data: {role: 'Administrador'}},
+
+  {path: '**', pathMatch: 'full', redirectTo: ''}
 
 ];
 

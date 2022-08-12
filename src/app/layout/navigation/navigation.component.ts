@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LocalStorageService } from 'src/app/services/localstorage/localstorage.service';
@@ -12,17 +12,26 @@ export class NavigationComponent implements OnInit {
 
   public products: number = 0;
 
-  constructor(private LocalStorageService: LocalStorageService, private authService: AuthService, private router: Router) { }
+
+  @Input() role: string = '';
+  @Input() username: string = ''
+  constructor(private LocalStorageService: LocalStorageService, private authService: AuthService, private router: Router) {
+    // this.authService.userCurrent().subscribe((res: any) => {
+    //   this.role = res;
+     
+    // });
+  }
 
   ngOnInit(): void {
-    this.products = this.LocalStorageService.shoppingCart();
+
+
   }
 
   logOut() {
     this.authService.logout().subscribe((res: any) => {
       this.router.navigateByUrl('login');
+      localStorage.removeItem('access_token')
     });
-    
   }
 
 }

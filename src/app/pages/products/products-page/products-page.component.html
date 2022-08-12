@@ -19,9 +19,9 @@
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
-                    
                     <tbody>
-                        <tr *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }">
+                        <tr
+                            *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }">
                             <td>{{ product.reference }}</td>
                             <td>{{ product.name }}</td>
                             <td>{{ product.category }}</td>
@@ -41,7 +41,10 @@
                         </tr>
                     </tbody>
                 </table>
-                <pagination-controls (pageChange)="pageChangeEvent($event)" class="custom-pagination"></pagination-controls>
+                <div class="d-flex justify-content-center">
+                    <pagination-controls (pageChange)="pageChangeEvent($event)" class="custom-pagination">
+                    </pagination-controls>
+                </div>
             </div>
         </div>
     </div>
@@ -62,7 +65,6 @@
             </button>
         </div>
     </div>
-
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark btn-sm" (click)="modal.close('Save click')">
             Cerrar

@@ -1,108 +1,42 @@
-<!-- <div class="section wf-section">
-    <div class="wrapper">
-      <div class="shop-header">
-        <h3 class="no-margin w-hidden-small w-hidden-tiny">All Toys</h3>
-        <div class="shop-categories-wrapper">
-          <a
-            href="catalog.html"
-            aria-current="page"
-            class="shop-category-link w--current"
-            >All Toys</a
-          >
-          <div class="w-dyn-list">
-            <div role="list" class="shop-categories w-dyn-items">
-              <div role="listitem" class="w-dyn-item">
-                <a href="category/wooden-toys.html" class="shop-category-link"
-                  >Wooden Toys</a
-                >
-              </div>
-              <div role="listitem" class="w-dyn-item">
-                <a href="category/stuffed-animals" class="shop-category-link"
-                  >Stuffed Animals</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="shop-header-line">
-          <div class="shop-header-color green w-hidden-small w-hidden-tiny"></div>
-        </div>
-      </div>
-      <div class="full-width w-dyn-list">
-        <div role="list" class="products w-dyn-items">
-          
-            <div role="listitem" class="product-card-wrapper w-dyn-item"
-            *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }">
-            <a href="javascript:void(0)" (click)="saveData(product.id)" class="product-card w-inline-block">
-              <div class="product-card-image-wrapper">
-                <img class="imagen" src="{{ product.avatar }}" alt="{{ product.avatar }}">
-              </div>
-              <h5 class="product-card-heading">{{ product.name }}</h5>
-              <p><small>Stock {{ product.stock }}<br>
-              ${{ product.price }}</small></p>
-              <div class="product-card-price">Agregar al carrito</div>
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-      <pagination-controls (pageChange)="pageChangeEvent($event)" class="custom-pagination"></pagination-controls>
-    </div>
-  </div> -->
-
-
-
 <header class="bg-dark py-5">
   <div class="container px-4 px-lg-5 my-5">
     <div class="text-center text-white">
-      <h1 class="display-4 fw-bolder">Tienda</h1>
+      <h1 class="display-4 fw-bolder">Small Food</h1>
       <p class="lead fw-normal text-white-50 mb-0">
-        With this shop hompeage template
       </p>
     </div>
   </div>
 </header>
-<!-- Section-->
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
-    <div
-      class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center"
-    >
-      <div class="col mb-4" *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center">
+      <div class="col mb-4"
+        *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }">
         <div class="card h-100">
-          <!-- Product image-->
-          <img
-            class="card-img-top"
-            src="https://dummyimage.com/450x200/dee2e6/6c757d.jpg"
-            alt="..."
-          />
-          <!-- Product details-->
+          <img class="card-img-top" src="https://dummyimage.com/450x200/dee2e6/6c757d.jpg" alt="..." />
           <div class="card-body p-4">
             <div class="text-center">
-              <!-- Product name-->
               <p><small><strong>{{ product.name }}</strong></small></p>
-              <!-- Product price-->
               <p><small [ngStyle]="{'color': product.stock == '0' ? 'red' : ''}">Stock {{ product.stock }}</small></p>
               <p><small>Precio ${{ product.price }}</small></p>
             </div>
           </div>
-          <!-- Product actions-->
           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
             <div class="text-center">
-              <a (click)="saveData(product.id)" class="btn btn-sm btn-outline-dark" href="javascript:void(0);">+ Carrito</a>
+              <a (click)="saveData(product.id)" class="btn btn-sm btn-outline-dark" href="javascript:void(0);">+
+                Carrito</a>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
-    <pagination-controls (pageChange)="pageChangeEvent($event)" class="custom-pagination"></pagination-controls>
+    <div class="d-flex justify-content-center">
+      <pagination-controls (pageChange)="pageChangeEvent($event)" class="custom-pagination"></pagination-controls>
+    </div>
   </div>
 </section>
-
 <footer class="py-5 bg-dark">
   <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
+    <p class="m-0 text-center text-white">Copyright &copy; Small Food 2022</p>
   </div>
 </footer>
