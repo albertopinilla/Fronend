@@ -40,7 +40,7 @@ export class AppComponent {
   * Inicia el contador de Timeout 
   **/
   start() {
-    this.idle.setIdle(5);
+    this.idle.setIdle(300);
 
     this.idle.setTimeout(60);
    
