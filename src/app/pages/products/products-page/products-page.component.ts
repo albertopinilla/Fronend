@@ -13,10 +13,10 @@ export class ProductsPageComponent implements OnInit {
   products: any = [];
   p: number = 1;
   total: number = 0;
-  private product_id:number = 0;
+  private product_id: number = 0;
 
   constructor(private productService: ProductsService, private localStore: LocalStorageService, private modal: ModalService) {
-    
+
   }
 
   ngOnInit() {
@@ -24,16 +24,15 @@ export class ProductsPageComponent implements OnInit {
   }
 
   getAll() {
-    
+
     this.productService.getProducts(this.p)
       .subscribe((res: any) => {
-        
+
         this.products = res.data;
         this.total = res.total;
 
-   
       });
-    
+
   }
 
   pageChangeEvent(event: number) {
@@ -45,7 +44,7 @@ export class ProductsPageComponent implements OnInit {
     this.productService.deleteProduct(this.product_id)
       .subscribe((res: any) => {
         this.getAll();
-        
+
       });
   }
 
@@ -53,15 +52,5 @@ export class ProductsPageComponent implements OnInit {
     this.product_id = id;
     this.modal.open(myModal);
   }
-
-  // saveData(key: string) {
-
-  //   this.service.getProduct(key)
-  //     .subscribe((response: any) => {
-  //       localStorage.setItem(key, JSON.stringify(response.product));
-  //     });
-
-  //   this.carrito = this.localStore.shoppingCart();
-  // }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users/users.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-users-page',
@@ -32,11 +32,9 @@ export class UsersPageComponent implements OnInit {
     this.users.deleteUser(this.user_id)
       .subscribe((res: any) => {
         this.getall();
-        
+
       });
   }
-
-  
 
   openModal(myModal: any, id: number) {
     this.user_id = id;

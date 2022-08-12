@@ -11,31 +11,30 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router,private formBuilder: FormBuilder, private login: AuthService) { }
+  constructor(private router: Router, private formBuilder: FormBuilder, private login: AuthService) { }
 
   registerForm: any = FormGroup;
   submitted = false;
 
   get f() { return this.registerForm.controls; }
 
-  onSubmit():void {
-   
+  onSubmit(): void {
+
     this.submitted = true;
-    // stop here if form is invalid
+
     if (this.registerForm.invalid) {
       return;
     }
-    //True if all the fields are filled
-    if (this.submitted) {
-      
-      const user: Auth= this.registerForm.value;
-      
-      this.login.login(user)
-        .subscribe((data:any) => {
 
-          localStorage.setItem('access_token',data.token);
+    if (this.submitted) {
+
+      const user: Auth = this.registerForm.value;
+
+      this.login.login(user)
+        .subscribe((data: any) => {
+          localStorage.setItem('access_token', data.token);
           void this.router.navigateByUrl('');
-        }, error=>{
+        }, error => {
           alert('El usuario y/o contraseña son incorrectos')
         });
 
@@ -44,11 +43,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    //Add User form validations
+
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+    
   }
 
 }

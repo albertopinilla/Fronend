@@ -7,24 +7,24 @@ import { PathRest } from 'src/app/static/path-rest';
 })
 
 export class ProductsService {
+  
+  constructor(private httpClient: HttpClient) { }
 
   private products = PathRest.GET_PRODUCTS;
   private product = PathRest.GET_PRODUCT;
 
-  constructor(private httpClient: HttpClient) { }
-    
-  getProducts(page: number){
+  getProducts(page: number) {
     return this.httpClient.get(this.products + '?page=' + page);
-    
+
   }
 
-  getProduct(id:string){
-    
+  getProduct(id: string) {
+
     return this.httpClient.get(this.product + '/' + id);
   }
 
-  deleteProduct(id:number){
+  deleteProduct(id: number) {
     return this.httpClient.delete(this.product + '/' + id);
   }
-  
+
 }

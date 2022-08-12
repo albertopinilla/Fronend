@@ -8,19 +8,16 @@ import { PathRest } from 'src/app/static/path-rest';
 })
 export class BuyService {
 
+  constructor(private httpClient: HttpClient) { }
+
   private purchase = PathRest.POST_BUY;
   private shoppings = PathRest.GET_SHOPPING;
- 
-  constructor(private httpClient: HttpClient) { }
-    
-  buy(products: Buy){
-    
-    return this.httpClient.post<Buy>(this.purchase, products);
 
+  buy(products: Buy) {
+    return this.httpClient.post<Buy>(this.purchase, products);
   }
 
-  shopping()
-  {
+  shopping() {
     return this.httpClient.get(this.shoppings);
   }
 

@@ -22,11 +22,11 @@ export class CreateRolesComponent implements OnInit {
   onSubmit(): void {
 
     this.submitted = true;
-    // stop here if form is invalid
+
     if (this.createRolForm.invalid) {
       return;
     }
-    //True if all the fields are filled
+
     if (this.submitted) {
 
       const role: Role = this.createRolForm.value;
@@ -35,7 +35,6 @@ export class CreateRolesComponent implements OnInit {
         .subscribe((data: any) => {
           this.createRolForm.reset();
         });
-
     }
 
   }

@@ -8,9 +8,9 @@ import { BuyService } from 'src/app/services/buy/buy.service';
 })
 export class ShoppingPageComponent implements OnInit {
 
-  public data: any = [];
-
   constructor(private shoppings: BuyService) { }
+
+  public data: any = [];
 
   ngOnInit() {
     this.getShoppings();
@@ -19,11 +19,8 @@ export class ShoppingPageComponent implements OnInit {
   getShoppings() {
     this.shoppings.shopping()
       .subscribe((res: any) => {
-
         this.data = res;
-
       });
-
   }
 
 }

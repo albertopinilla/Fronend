@@ -8,37 +8,32 @@ import { PathRest } from 'src/app/static/path-rest';
 })
 export class RolesService {
 
-  private roles = PathRest.ROLES;
-  
   constructor(private httpClient: HttpClient) { }
-    
-  getRoles(){
+
+  private roles = PathRest.ROLES;
+
+  getRoles() {
     return this.httpClient.get(this.roles);
   }
 
-  getRole(id:number){
+  getRole(id: number) {
     return this.httpClient.get(`${this.roles}/${id}`);
   }
 
-  deleteRole(id:number)
-  {
+  deleteRole(id: number) {
     return this.httpClient.delete(`${this.roles}/${id}`);
   }
 
- 
-  createRole(role: Role)
-  {
-    return this.httpClient.post<Role>(PathRest.ROLES,role);
+  createRole(role: Role) {
+    return this.httpClient.post<Role>(PathRest.ROLES, role);
   }
 
-  editRole(id:number)
-  {
+  editRole(id: number) {
     return this.httpClient.get(`${this.roles}/${id}`);
   }
 
-  updateRole(id:number, data:any)
-  {
-    return this.httpClient.put(`${this.roles}/${id}`,data);
+  updateRole(id: number, data: any) {
+    return this.httpClient.put(`${this.roles}/${id}`, data);
   }
 
 }

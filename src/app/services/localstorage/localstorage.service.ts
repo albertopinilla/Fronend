@@ -17,8 +17,7 @@ export class LocalStorageService {
     sessionStorage.removeItem(key);
   }
 
-  shoppingCart()
-  {
+  shoppingCart() {
     return sessionStorage.length
   }
 
@@ -26,8 +25,7 @@ export class LocalStorageService {
     sessionStorage.clear();
   }
 
-  public getAll()
-  {
+  public getAll() {
     return sessionStorage;
   }
 }

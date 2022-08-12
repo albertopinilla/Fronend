@@ -21,11 +21,11 @@ export class CreateProductsComponent implements OnInit {
   onSubmit(): void {
 
     this.submitted = true;
-    // stop here if form is invalid
+
     if (this.registerForm.invalid) {
       return;
     }
-    //True if all the fields are filled
+
     if (this.submitted) {
 
       const user: User = this.registerForm.value;
@@ -50,8 +50,5 @@ export class CreateProductsComponent implements OnInit {
     });
 
   }
-
-
-
 
 }

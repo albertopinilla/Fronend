@@ -12,12 +12,6 @@ import { NavigationEnd, Router } from '@angular/router';
 
 export class AppComponent {
 
-  idleState = '';
-  timedOut = false;
-  lastPing?: any;
-  role: any;
-  username:any; 
-
   constructor(private idle: Idle, private keepalive: Keepalive, private authService: AuthService, private router: Router) {
 
     this.router.events.subscribe(event => {
@@ -33,6 +27,12 @@ export class AppComponent {
     });
 
   }
+
+  idleState = '';
+  timedOut = false;
+  lastPing?: any;
+  role: any;
+  username:any; 
 
   start() {
     this.idle.setIdle(60);
@@ -51,8 +51,7 @@ export class AppComponent {
         });
   
     });
-
-    //this.idle.onIdleStart.subscribe(() => this.idleState = 'You\'ve gone idle!');
+    
     this.idle.onTimeoutWarning.subscribe((countdown) => this.idleState = 'No hemos detectado actividad en los últimos minutos, la sesión se cerrara en ' + countdown + ' segundos!');
 
     this.keepalive.interval(15);

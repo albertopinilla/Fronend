@@ -8,9 +8,9 @@ import { PathRest } from 'src/app/static/path-rest';
 })
 export class UsersService {
 
-  private users = PathRest.GET_USERS;
-  
   constructor(private httpClient: HttpClient) { }
+
+  private users = PathRest.GET_USERS;
     
   getUsers(){
     return this.httpClient.get(this.users);
@@ -24,7 +24,6 @@ export class UsersService {
   {
     return this.httpClient.delete(`${this.users}/${id}`);
   }
-
  
   createUser(user: User)
   {

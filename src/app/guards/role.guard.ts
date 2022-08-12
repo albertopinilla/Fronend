@@ -11,22 +11,19 @@ export class RoleGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  canActivate(route:ActivatedRouteSnapshot){
+  canActivate(route: ActivatedRouteSnapshot) {
 
-    const token:any = localStorage.getItem('access_token');
+    const token: any = localStorage.getItem('access_token');
     const role = route.data['role'];
-    const token_decode:any = decode(token);
+    const token_decode: any = decode(token);
 
-    let isFounded = token_decode.role.some((v:any) => role.includes(v));
+    let isFounded = token_decode.role.some((v: any) => role.includes(v));
 
-    if(isFounded)
-    {
+    if (isFounded) {
       return true;
     }
-    
+
     return false;
   }
-
- 
 
 }

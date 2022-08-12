@@ -1,13 +1,8 @@
 <section>
   <div class="parent" *ngIf="datos.length > 0; else content">
-
-
-
     <div class="container px-4 px-lg-5 mt-5">
       <div class="card" style="width: 100%;">
         <div class="card-body">
-
-
           <div class="row g-0">
             <div class="col-md-8 border-right">
               <div class="p-3 bg-white">
@@ -18,7 +13,6 @@
                     <em class="fa fa-angle-down"></em>
                   </div>
                 </div>
-
                 <div class="table-responsive">
                   <table class="table table-sm">
                     <thead>
@@ -29,7 +23,6 @@
                       <th scope="col">Cantidad</th>
                       <th scope="col"></th>
                     </thead>
-
                     <tbody>
                       <tr *ngFor="let item of datos; let i = index">
                         <td>{{ i + 1 }}</td>
@@ -72,6 +65,5 @@
 <ng-template #content>
   <div class="d-flex align-items-center justify-content-center h-100">
     <p>Tu carrito de compras esta vacío</p>
-    
   </div>
 </ng-template>

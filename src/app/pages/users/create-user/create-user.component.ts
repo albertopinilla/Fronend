@@ -16,27 +16,26 @@ export class CreateUserComponent implements OnInit {
 
   submitted = false;
 
-  get f() { return this.registerForm.controls; }
+  get f() {
+    return this.registerForm.controls;
+  }
 
   onSubmit(): void {
 
     this.submitted = true;
-    // stop here if form is invalid
+
     if (this.registerForm.invalid) {
       return;
     }
-    //True if all the fields are filled
+
     if (this.submitted) {
 
       const user: User = this.registerForm.value;
 
       this.userService.createUser(user)
         .subscribe((data: any) => {
-          if (data.success === true) {
 
-          }
         });
-
     }
 
   }
@@ -50,8 +49,5 @@ export class CreateUserComponent implements OnInit {
     });
 
   }
-
-
-
 
 }

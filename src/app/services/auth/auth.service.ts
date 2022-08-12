@@ -13,7 +13,6 @@ import { AuthCurrent } from 'src/app/models/AuthCurrent';
 })
 export class AuthService {
 
-
   constructor(private httpClient: HttpClient, private router: Router, private jwtHelperService: JwtHelperService) { }
 
   private httpOptions = {
@@ -50,7 +49,7 @@ export class AuthService {
       user = { 'role': token_decode.role, 'username': token_decode.username };
       data = user;
     }
-   
+
     return data;
 
   }

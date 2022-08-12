@@ -28,12 +28,12 @@ export class BuyPageComponent implements OnInit {
     let keys = [];
     this.datos = [];
     keys = Object.keys(this.sessionStore.getAll());
-   
-    keys.forEach((element,index) => {
+
+    keys.forEach((element, index) => {
       this.datos.push(JSON.parse(sessionStorage[element]));
       this.datos[index]['cantidad'] = '1';
     });
-   
+
     this.calcularPrecio();
 
   }
@@ -56,7 +56,7 @@ export class BuyPageComponent implements OnInit {
     const buy: Buy = this.purchase;
 
     this.newpurchase.buy(buy).subscribe((data) => {
-   
+
       this.sessionStore.clearData();
       this.ngOnInit();
     }, error => {

@@ -19,8 +19,8 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
   declarations: [
     AppComponent,
     NavigationComponent,
-    
-    ],
+
+  ],
   imports: [
     BrowserModule,
     AuthModule,
@@ -32,11 +32,11 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     ProductsModule,
     RolesModule,
     NgIdleKeepaliveModule.forRoot(),
-    
+
   ],
   providers: [
     {
-      provide:HTTP_INTERCEPTORS,
+      provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     },
@@ -49,5 +49,4 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 })
 
 export class AppModule {
-  
- }
+}
